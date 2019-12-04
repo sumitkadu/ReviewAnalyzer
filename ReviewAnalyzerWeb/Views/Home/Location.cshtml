@@ -1,0 +1,30 @@
+﻿@{
+    ViewBag.Title = "Location/Sentiment Review";
+}
+@model Review_Analyzer.Models.ReviewModel
+
+<h2>@ViewBag.Title</h2>
+
+@using (Html.BeginForm("GetSentimentForLocation", "Home", FormMethod.Post))
+{
+    <label> Locations: </label>
+    @Html.DropDownListFor(x=> x.SelectedLocation, Model.Locations)
+    <input id="Submit" type="submit" value="submit" />
+}
+
+@if (Model.ShowSentiments)
+{
+    <div>Edit/Delete link goes here</div>
+    <Div>
+        <img src="~/Images/Positive.jpg" alt="Positive" />
+        @Html.DisplayFor(x => x.PositiveSentiments);
+        <br />
+        <br />
+        <img src="~/Images/Negative.jpg" alt="Negative" />
+        @Html.DisplayFor(x => x.NegativeSentiments);
+    </Div>
+}
+
+
+
+

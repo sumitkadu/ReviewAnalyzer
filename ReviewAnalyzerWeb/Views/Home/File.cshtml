@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewBag.Title = "File";
+}
+
+@model Review_Analyzer.Models.ReviewModel
+
+<h2>@ViewBag.Title</h2>
+
+@using (Html.BeginForm("UploadFile", "Home", FormMethod.Post, new { enctype = "multiplartData"} ) )
+{
+    <label> Browse: </label>
+    @Html.DropDownListFor(x => x.SelectedLocation, Model.Locations)
+    <input id="Submit" type="submit" value="Upload" />
+}
+
+@if (Model.ShowSentiments)
+{
+    <div>Edit/Delete link goes here</div>
+    <Div>
+        <img src="~/Images/Positive.jpg" alt="Positive" />
+        @Html.DisplayFor(x => x.PositiveSentiments);
+        <br />
+        <br />
+        <img src="~/Images/Negative.jpg" alt="Negative" />
+        @Html.DisplayFor(x => x.NegativeSentiments);
+    </Div>
+}
