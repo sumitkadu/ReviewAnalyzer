@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -14,18 +15,38 @@ namespace Review_Analyzer.Controllers
             return View();
         }
 
-        public ActionResult About()
+        public ActionResult UploadFile(HttpPostedFileBase uploadFile)
         {
             ViewBag.Message = "Your application description page.";
+            ReviewModel model = new ReviewModel();
+            try
+            {
+                if (uploadFile.ContentLength > 0)
+                {
+                    string _FileName = Path.GetFileName(uploadFile.FileName);
+                    // string _path = Path.Combine(Server.MapPath("~/UploadedFiles"), _FileName);
+                    // uploadFile.SaveAs(_path);
+                    //TODO: Send file to get review
+                    model.NegativeSentiments = "20%";
+                    model.PositiveSentiments = "80%";
+                    model.ShowSentiments = true;
+                }
 
-            return View();
+                return View("File", model);
+            }
+            catch
+            {
+                ViewBag.Message = "File upload failed!!";
+                return View("Location", model);
+            }            
         }
 
-        public ActionResult Contact()
+        public ActionResult File()
         {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.Message = "Your File page.";
+            ReviewModel model = new ReviewModel();
 
-            return View();
+            return View(model);
         }
 
         public ActionResult Review()
@@ -79,6 +100,8 @@ namespace Review_Analyzer.Controllers
             ViewBag.Message = "Your Review page.";
             ReviewModel model = new ReviewModel();            
             return View(model);
-        }        
+        }    
+        
+        
     }
 }
