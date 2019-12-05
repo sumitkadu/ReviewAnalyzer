@@ -13,8 +13,9 @@ namespace ReviewAnalyzerAPI
 {
     public class SentimentAnalysis
     {
-        static readonly string _dataPath = Path.Combine(Environment.CurrentDirectory, "App_Data", "TrainingData.txt");
-                
+        static readonly string _dataPath = System.Configuration.ConfigurationManager.AppSettings["TrainingDataFilePath"].ToString();
+
+
         public TrainTestData LoadData(MLContext mlContext)
         {
             IDataView dataView = mlContext.Data.LoadFromTextFile<SentimentData>(_dataPath, hasHeader: false);
@@ -29,7 +30,7 @@ namespace ReviewAnalyzerAPI
             //Console.WriteLine("=============== Create and Train the Model ===============");
             var model = estimator.Fit(splitTrainSet);
             //Console.WriteLine("=============== End of training ===============");
-            Console.WriteLine();
+            //Console.WriteLine();
             return model;
         }
 
@@ -46,14 +47,14 @@ namespace ReviewAnalyzerAPI
             //Console.WriteLine($"F1Score: {metrics.F1Score:P2}");
             //Console.WriteLine("=============== End of model evaluation ===============");
         }
-        public SentimentAnalysisResponse PredictSentiments(MLContext mlContext, ITransformer model, List<string> sentiments)
+        public SentimentAnalysisResponse PredictSentiments(MLContext mlContext, ITransformer model, List<SentimentData> sentiments)
         {           
             IDataView batchComments = mlContext.Data.LoadFromEnumerable(sentiments);
             IDataView predictions = model.Transform(batchComments);
 
             // Use model to predict whether comment data is Positive (1) or Negative (0).
             IEnumerable<SentimentPrediction> predictedResults = mlContext.Data.CreateEnumerable<SentimentPrediction>(predictions, reuseRowObject: false);
-            Console.WriteLine();
+            //Console.WriteLine();
 
             SentimentAnalysisResponse response = new SentimentAnalysisResponse();
             List<SentimentPrediction> sentimentPrediction = new List<SentimentPrediction>();
@@ -62,6 +63,7 @@ namespace ReviewAnalyzerAPI
                 sentimentPrediction.Add(new SentimentPrediction() { Prediction = prediction.Prediction, Probability = prediction.Probability, Score = prediction.Score });
             }
 
+            response.SentimentPrediction = sentimentPrediction;
             return response;
         }
     }
