@@ -12,22 +12,27 @@ using ReviewAnalyzerAPI.Models;
 namespace ReviewAnalyzerAPI.Controllers
 {
     public class SentimentAnalysisController : ApiController
-    {
-        public SentimentAnalysisResponse Post(List<string> sentimentData)
+    {   
+        public SentimentAnalysisResponse Post(SentimentAnalysisRequest request)
         {
-            List<SentimentData> sentimentDatas = new List<SentimentData>();
-            foreach(string s in sentimentData)
+            if (request != null && request?.Sentiments.Count > 0)
             {
-                sentimentDatas.Add(new SentimentData() { SentimentText = s });
+                List<SentimentData> sentimentDatas = new List<SentimentData>();
+                foreach (string s in request.Sentiments)
+                {
+                    sentimentDatas.Add(new SentimentData() { SentimentText = s });
+                }
+
+                SentimentAnalysis sentimentAnalysis = new SentimentAnalysis();
+                MLContext mlContext = new MLContext();
+                TrainTestData splitDataView = sentimentAnalysis.LoadData(mlContext);
+                ITransformer model = sentimentAnalysis.BuildAndTrainModel(mlContext, splitDataView.TrainSet);
+                sentimentAnalysis.Evaluate(mlContext, model, splitDataView.TestSet);
+                //UseModelWithSingleItem(mlContext, model);
+                return sentimentAnalysis.PredictSentiments(mlContext, model, sentimentDatas);
             }
 
-            SentimentAnalysis sentimentAnalysis = new SentimentAnalysis();
-            MLContext mlContext = new MLContext();
-            TrainTestData splitDataView = sentimentAnalysis.LoadData(mlContext);
-            ITransformer model = sentimentAnalysis.BuildAndTrainModel(mlContext, splitDataView.TrainSet);
-            sentimentAnalysis.Evaluate(mlContext, model, splitDataView.TestSet);
-            //UseModelWithSingleItem(mlContext, model);
-            return sentimentAnalysis.PredictSentiments(mlContext, model, sentimentDatas);
+            return null;
         }
     }
 }

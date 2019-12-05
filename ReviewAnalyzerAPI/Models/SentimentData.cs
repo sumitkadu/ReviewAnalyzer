@@ -1,5 +1,6 @@
 ﻿using Microsoft.ML.Data;
 using System.Runtime.Serialization;
+using System.Collections.Generic;
 
 namespace ReviewAnalyzerAPI.Models
 {
@@ -23,5 +24,12 @@ namespace ReviewAnalyzerAPI.Models
         public float Probability { get; set; }
 
         public float Score { get; set; }
+    }
+
+    [DataContract]
+    public class SentimentAnalysisRequest
+    {
+        [DataMember]
+        public List<string> Sentiments { get; set; }
     }
 }
