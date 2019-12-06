@@ -1,0 +1,14 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/ReviewAnalyzerAPI/bin
+*.dll
+*.targets
+.vs/ReviewAnalyzer/v16/.suo
+*.exe
+*.rsp
+*.config
+*.ide
+*.ide-shm
+.vs/ReviewAnalyzer/v16/Server/sqlite3/storage.ide-wal
