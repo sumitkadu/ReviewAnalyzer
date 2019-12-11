@@ -1,17 +1,19 @@
 ﻿@{
-    ViewBag.Title = "Sentiment Review";
+    ViewBag.Title = "Comment Review";
 }
 @model Review_Analyzer.Models.ReviewModel
 
 <h2>@ViewBag.Title</h2>
+<br />
 
 @using (Html.BeginForm("GetSentiment", "Home", FormMethod.Post))
 {
     <label> Review Comments: </label>
-    @Html.TextBox("txtReviewCommnent")
-    <input id="Submit1" type="submit" value="submit" />
+    @Html.TextBox("txtReviewCommnent",null,new { @class = "form-control", style = "width : 600px" })
+    <br />
+    <input id="Submit1" type="submit" value="Submit" class="btn btn-primary" />
 }
 <br />
 <br />
 <img src="@Model.ImageURL" alt="@Model.ImageURL" />
-<p>Use this area to provide additional information.</p>
+

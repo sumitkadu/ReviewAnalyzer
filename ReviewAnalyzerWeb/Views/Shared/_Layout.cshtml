@@ -8,7 +8,7 @@
     @Scripts.Render("~/bundles/modernizr")
     <style>
     /* Set height of the grid so .sidenav can be 100% (adjust if needed) */
-    .row.content {height: 600px}
+    .row.content {height: 700px}
 
     /* Set gray background color and 100% height */
     .sidenav {
@@ -21,7 +21,7 @@
       background-color: #555;
       color: white;
       padding: 15px;
-    } 
+    }    
     </style>
 </head>
 <body>
@@ -30,13 +30,13 @@
             <div class="col-sm-3 sidenav">
                 <h4>Sentiments Review</h4>
                 <ul class="nav nav-pills nav-stacked">
-                    <li>@Html.ActionLink("Location", "Location", "Home")</li>
                     <li>@Html.ActionLink("Comment Review", "Review", "Home")</li>
                     <li>@Html.ActionLink("File Review", "File", "Home")</li>
-                    <li>@Html.ActionLink("Location", "Location", "Home")</li>
-                    <li>@Html.ActionLink("Google Review", "Contact", "Home")</li>
-                    <li>@Html.ActionLink("Twitter Review", "Contact", "Home")</li>
-                    <li>@Html.ActionLink("Other", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("Database Review", "ComingSoon", "Home")</li>
+                    <li>@Html.ActionLink("Google Review", "ComingSoon", "Home")</li>
+                    <li>@Html.ActionLink("Twitter Review", "ComingSoon", "Home")</li>
+                    <li>@Html.ActionLink("Yelp", "ComingSoon", "Home")</li>
+                    <li>@Html.ActionLink("Other", "ComingSoon", "Home")</li>
                 </ul>
             </div>
             <div class="col-sm-9">

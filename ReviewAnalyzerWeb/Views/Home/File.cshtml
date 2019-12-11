@@ -10,14 +10,10 @@
 <br />
 
 @using (Html.BeginForm("UploadFile", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
-{
-<div class="form-inline">  
-        <label> Browse: </label>
-        <input type="file" name="uploadFile" />
-        <input id="Submit" type="submit" value="Upload" class="btn btn-primary" />
-    
-</div>
-
+{   
+    <input type="file" name="uploadFile" />
+    <br />
+        <input id="Submit" type="submit" value="Upload" class="btn btn-primary" />    
 
     <Div>
         @if (Model.ShowSentiments)

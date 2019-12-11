@@ -113,6 +113,10 @@ namespace Review_Analyzer.Controllers
             ReviewModel model = new ReviewModel();
             return View(model);
         }
+        public ActionResult ComingSoon()
+        {                     
+            return View("Contact");
+        }
 
 
         private List<SentimentPrediction> MakeRequest(List<string> text)
@@ -127,7 +131,7 @@ namespace Review_Analyzer.Controllers
             var byteContent = new ByteArrayContent(buffer);
             byteContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
 
-            var result =  client.PostAsync(@"http://localhost:5001/api/SentimentAnalysis", byteContent).Result;
+            var result =  client.PostAsync(@"http://localhost:5002/api/SentimentAnalysis", byteContent).Result;
 
             if (result.IsSuccessStatusCode)
             {
