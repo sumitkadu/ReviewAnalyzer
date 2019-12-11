@@ -6,20 +6,30 @@
     <title>@ViewBag.Title - Review Analyzer</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    <style>
+    /* Set height of the grid so .sidenav can be 100% (adjust if needed) */
+    .row.content {height: 600px}
+
+    /* Set gray background color and 100% height */
+    .sidenav {
+      background-color: #f1f1f1;
+      height: 100%;
+    }
+
+    /* Set black background color, white text and some padding */
+    footer {
+      background-color: #555;
+      color: white;
+      padding: 15px;
+    } 
+    </style>
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Sentiments Review", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
+    <div class="container-fluid">
+        <div class="row content">
+            <div class="col-sm-3 sidenav">
+                <h4>Sentiments Review</h4>
+                <ul class="nav nav-pills nav-stacked">
                     <li>@Html.ActionLink("Location", "Location", "Home")</li>
                     <li>@Html.ActionLink("Comment Review", "Review", "Home")</li>
                     <li>@Html.ActionLink("File Review", "File", "Home")</li>
@@ -29,19 +39,17 @@
                     <li>@Html.ActionLink("Other", "Contact", "Home")</li>
                 </ul>
             </div>
+            <div class="col-sm-9">
+                @RenderBody()                          
+            </div>
         </div>
-    </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            @*<p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>*@
-            @*<p>Review Analyzer</p>*@
-        </footer>
     </div>
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
+    <footer class="container-fluid">
+        <p></p>
+    </footer>
 </body>
 </html>

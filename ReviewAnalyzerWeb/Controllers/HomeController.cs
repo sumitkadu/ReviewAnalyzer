@@ -148,8 +148,6 @@ namespace Review_Analyzer.Controllers
     {
         public List<SentimentPrediction> SentimentPrediction { get; set; }
     }
-
-
     
     public class SentimentPrediction
     {     
