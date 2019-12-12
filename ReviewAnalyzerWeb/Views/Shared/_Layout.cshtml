@@ -7,27 +7,29 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     <style>
-    /* Set height of the grid so .sidenav can be 100% (adjust if needed) */
-    .row.content {height: 700px}
+        /* Set height of the grid so .sidenav can be 100% (adjust if needed) */
+        .row.content {
+            height: 700px
+        }
 
-    /* Set gray background color and 100% height */
-    .sidenav {
-      background-color: #f1f1f1;
-      height: 100%;
-    }
+        /* Set gray background color and 100% height */
+        .sidenav {
+            background-color: #f1f1f1;
+            height: 100%;
+        }
 
-    /* Set black background color, white text and some padding */
-    footer {
-      background-color: #555;
-      color: white;
-      padding: 15px;
-    }    
+        /* Set black background color, white text and some padding */
+        footer {
+            background-color: #555;
+            color: white;
+            padding: 15px;
+        }
     </style>
 </head>
 <body>
     <div class="container-fluid">
         <div class="row content">
-            <div class="col-sm-3 sidenav">
+            <div class="col-sm-2 sidenav">
                 <h4>Sentiments Review</h4>
                 <ul class="nav nav-pills nav-stacked">
                     <li>@Html.ActionLink("Comment Review", "Review", "Home")</li>
@@ -39,8 +41,8 @@
                     <li>@Html.ActionLink("Other", "ComingSoon", "Home")</li>
                 </ul>
             </div>
-            <div class="col-sm-9">
-                @RenderBody()                          
+            <div class="col-sm-10">
+                @RenderBody()
             </div>
         </div>
     </div>

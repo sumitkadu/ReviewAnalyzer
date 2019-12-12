@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "File Review";
 }
 
@@ -10,23 +9,43 @@
 <br />
 
 @using (Html.BeginForm("UploadFile", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
-{   
+{
     <input type="file" name="uploadFile" />
     <br />
-        <input id="Submit" type="submit" value="Upload" class="btn btn-primary" />    
+    <input id="Submit" type="submit" value="Upload" class="btn btn-primary" />
+    <br />
+    <br />
+    <br />
+    <br />
 
     <Div>
         @if (Model.ShowSentiments)
         {
-
-            <img src="~/Images/Positive.jpg" alt="Positive" />
-            @Html.DisplayFor(x => x.PositiveSentiments);
+            <label id="probability">Probability : @Model.Probability</label>
             <br />
             <br />
-            <img src="~/Images/Negative.jpg" alt="Negative" />
-            @Html.DisplayFor(x => x.NegativeSentiments);
-
-        }
+            <table>
+                <tr>
+                    <td width="1%" align="left">
+                        <img src="~/Images/Happy.Jpg" alt="Negative" />
+                    </td>
+                    <td>
+                        <div class="progress" style="height:50px">
+                            <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuemin="0" aria-valuemax="100"
+                                 style="width:@Model.PositiveSentiments; height:50px">
+                                @Model.PositiveSentiments
+                            </div>
+                            <div class="progress-bar progress-bar-danger progress-bar-striped" role="progressbar" aria-valuemin="0" aria-valuemax="100"
+                                 style="width:@Model.NegativeSentiments;height:50px">@Model.NegativeSentiments</div>
+                            </div>
+                        </td>
+                        <td width="1%">
+                            <div style="width:50%;background-color:chartreuse">
+                                <img src="~/Images/Negative.Jpg" alt="Negative" />
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            }
     </Div>
-
 }

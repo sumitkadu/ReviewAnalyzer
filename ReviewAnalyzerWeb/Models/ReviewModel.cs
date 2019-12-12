@@ -26,5 +26,7 @@ namespace Review_Analyzer.Models
 
         public bool ShowSentiments { get; set; }
 
+        public float Probability { get; set; }
+
     }
 }

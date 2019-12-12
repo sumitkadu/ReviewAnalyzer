@@ -9,11 +9,18 @@
 @using (Html.BeginForm("GetSentiment", "Home", FormMethod.Post))
 {
     <label> Review Comments: </label>
-    @Html.TextBox("txtReviewCommnent",null,new { @class = "form-control", style = "width : 600px" })
+    @Html.TextBox("txtReviewCommnent", null, new { @class = "form-control", style = "width : 600px" })
     <br />
     <input id="Submit1" type="submit" value="Submit" class="btn btn-primary" />
+    <br />
+    <br />
+    if (Model.ShowSentiments)
+    {
+        <label id="probability">Probability : @Model.Probability</label>
+    }
 }
 <br />
 <br />
 <img src="@Model.ImageURL" alt="@Model.ImageURL" />
+
 
