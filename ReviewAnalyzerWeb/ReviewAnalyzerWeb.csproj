@@ -128,6 +128,39 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Coming Soon\bootstrap\css\bootstrap-grid.css" />
+    <Content Include="Coming Soon\bootstrap\css\bootstrap-grid.min.css" />
+    <Content Include="Coming Soon\bootstrap\css\bootstrap-reboot.css" />
+    <Content Include="Coming Soon\bootstrap\css\bootstrap-reboot.min.css" />
+    <Content Include="Coming Soon\bootstrap\css\bootstrap.css" />
+    <Content Include="Coming Soon\bootstrap\css\bootstrap.min.css" />
+    <Content Include="Coming Soon\bootstrap\js\bootstrap.bundle.js" />
+    <Content Include="Coming Soon\bootstrap\js\bootstrap.bundle.min.js" />
+    <Content Include="Coming Soon\bootstrap\js\bootstrap.js" />
+    <Content Include="Coming Soon\bootstrap\js\bootstrap.min.js" />
+    <Content Include="Coming Soon\coming-soon.js" />
+    <Content Include="Coming Soon\coming-soon.min.js" />
+    <Content Include="Coming Soon\fontawesome-free\css\all.css" />
+    <Content Include="Coming Soon\fontawesome-free\css\all.min.css" />
+    <Content Include="Coming Soon\fontawesome-free\css\brands.css" />
+    <Content Include="Coming Soon\fontawesome-free\css\brands.min.css" />
+    <Content Include="Coming Soon\fontawesome-free\css\fontawesome.css" />
+    <Content Include="Coming Soon\fontawesome-free\css\fontawesome.min.css" />
+    <Content Include="Coming Soon\fontawesome-free\css\regular.css" />
+    <Content Include="Coming Soon\fontawesome-free\css\regular.min.css" />
+    <Content Include="Coming Soon\fontawesome-free\css\solid.css" />
+    <Content Include="Coming Soon\fontawesome-free\css\solid.min.css" />
+    <Content Include="Coming Soon\fontawesome-free\css\svg-with-js.css" />
+    <Content Include="Coming Soon\fontawesome-free\css\svg-with-js.min.css" />
+    <Content Include="Coming Soon\fontawesome-free\css\v4-shims.css" />
+    <Content Include="Coming Soon\fontawesome-free\css\v4-shims.min.css" />
+    <Content Include="Coming Soon\fontawesome-free\webfonts\fa-brands-400.svg" />
+    <Content Include="Coming Soon\fontawesome-free\webfonts\fa-regular-400.svg" />
+    <Content Include="Coming Soon\fontawesome-free\webfonts\fa-solid-900.svg" />
+    <Content Include="Coming Soon\jquery\jquery.js" />
+    <Content Include="Coming Soon\jquery\jquery.min.js" />
+    <Content Include="Coming Soon\jquery\jquery.slim.js" />
+    <Content Include="Coming Soon\jquery\jquery.slim.min.js" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -139,8 +172,33 @@
     <Content Include="Images\Down.png" />
     <Content Include="Images\Negative.jpg" />
     <Content Include="Images\Positive.jpg" />
+    <Content Include="mp4\bg.mp4" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Coming Soon\bootstrap\css\bootstrap-grid.css.map" />
+    <Content Include="Coming Soon\bootstrap\css\bootstrap-grid.min.css.map" />
+    <Content Include="Coming Soon\bootstrap\css\bootstrap-reboot.css.map" />
+    <Content Include="Coming Soon\bootstrap\css\bootstrap-reboot.min.css.map" />
+    <Content Include="Coming Soon\bootstrap\css\bootstrap.css.map" />
+    <Content Include="Coming Soon\bootstrap\css\bootstrap.min.css.map" />
+    <Content Include="Coming Soon\bootstrap\js\bootstrap.bundle.js.map" />
+    <Content Include="Coming Soon\bootstrap\js\bootstrap.bundle.min.js.map" />
+    <Content Include="Coming Soon\bootstrap\js\bootstrap.js.map" />
+    <Content Include="Coming Soon\bootstrap\js\bootstrap.min.js.map" />
+    <Content Include="Coming Soon\fontawesome-free\webfonts\fa-brands-400.eot" />
+    <Content Include="Coming Soon\fontawesome-free\webfonts\fa-brands-400.ttf" />
+    <Content Include="Coming Soon\fontawesome-free\webfonts\fa-brands-400.woff" />
+    <Content Include="Coming Soon\fontawesome-free\webfonts\fa-brands-400.woff2" />
+    <Content Include="Coming Soon\fontawesome-free\webfonts\fa-regular-400.eot" />
+    <Content Include="Coming Soon\fontawesome-free\webfonts\fa-regular-400.ttf" />
+    <Content Include="Coming Soon\fontawesome-free\webfonts\fa-regular-400.woff" />
+    <Content Include="Coming Soon\fontawesome-free\webfonts\fa-regular-400.woff2" />
+    <Content Include="Coming Soon\fontawesome-free\webfonts\fa-solid-900.eot" />
+    <Content Include="Coming Soon\fontawesome-free\webfonts\fa-solid-900.ttf" />
+    <Content Include="Coming Soon\fontawesome-free\webfonts\fa-solid-900.woff" />
+    <Content Include="Coming Soon\fontawesome-free\webfonts\fa-solid-900.woff2" />
+    <Content Include="Coming Soon\jquery\jquery.min.map" />
+    <Content Include="Coming Soon\jquery\jquery.slim.min.map" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -203,7 +261,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>62303</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:62303/</IISUrl>
+          <IISUrl>http://localhost:62304/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

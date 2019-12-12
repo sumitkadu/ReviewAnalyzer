@@ -1,15 +1,13 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using Review_Analyzer.Models;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
-using System.Text;
 using System.Web;
 using System.Web.Mvc;
-using Newtonsoft.Json;
-using Review_Analyzer.Models;
 
 namespace Review_Analyzer.Controllers
 {
@@ -35,10 +33,11 @@ namespace Review_Analyzer.Controllers
                     var result = MakeRequest(fileText);
                     int total = result.Count;
                     int posstive = result.Count(x => x.Prediction.Value);
-                    int negative = result.Count(x => !x.Prediction.Value);
-                    model.NegativeSentiments = (negative * 100 / total) + "%";
+                    int negative = result.Count(x => !x.Prediction.Value);                   
                     model.PositiveSentiments = (posstive * 100 / total) + "%";
+                    model.NegativeSentiments = 100 - (posstive * 100 / total) + "%";
                     model.ShowSentiments = true;
+                    model.Probability = result.Sum(x => x.Probability.Value) / result.Count;
                 }
                 return View("File", model);
             }
@@ -49,8 +48,28 @@ namespace Review_Analyzer.Controllers
             }
         }
 
-        
 
+        public ActionResult GetSentiment(string txtReviewCommnent)
+        {
+            ViewBag.Message = "Your Review page.";
+            ReviewModel model = new ReviewModel();
+            model.ImageURL = "";
+            var sentimentPrediction = MakeRequest(new List<string> { txtReviewCommnent }).FirstOrDefault();
+            bool result = sentimentPrediction.Prediction.Value;
+            if (result)
+                model.ImageURL = "../Images/Positive.jpg";
+            else
+                model.ImageURL = "../Images/Negative.jpg";
+
+            model.Probability = sentimentPrediction.Probability.Value;
+            model.ShowSentiments = true;
+            return View("Review", model);
+        }
+      
+        public ActionResult ComingSoon()
+        {                     
+            return View("Contact");
+        }
         public ActionResult File()
         {
             ViewBag.Message = "Your File page.";
@@ -64,53 +83,7 @@ namespace Review_Analyzer.Controllers
             ViewBag.Message = "Your Review page.";
             ReviewModel model = new ReviewModel();
             model.ImageURL = "";
-            return View(model);
-        }
-
-        public ActionResult GetSentiment(string txtReviewCommnent)
-        {
-            ViewBag.Message = "Your Review page.";
-            ReviewModel model = new ReviewModel();
-            model.ImageURL = "";
-            bool result = MakeRequest(new List<string> { txtReviewCommnent }).FirstOrDefault().Prediction.Value;
-            if (result)
-                model.ImageURL = "../Images/Positive.jpg";
-            else
-                model.ImageURL = "../Images/Negative.jpg";
-
-            return View("Review", model);
-        }
-
-        public ActionResult GetSentimentForLocation(string SelectedLocation)
-        {
-            ViewBag.Message = "Your Review page.";
-            ReviewModel model = new ReviewModel();
-            switch (SelectedLocation)
-            {
-                case "1":
-                    model.NegativeSentiments = "20%";
-                    model.PositiveSentiments = "80%";
-                    break;
-                case "2":
-                    model.NegativeSentiments = "15%";
-                    model.PositiveSentiments = "85%";
-                    break;
-                case "3":
-                    model.NegativeSentiments = "82%";
-                    model.PositiveSentiments = "18%";
-                    break;
-                default:
-                    break;
-            }
-
-            model.ShowSentiments = true;
-            return View("Location", model);
-        }
-
-        public ActionResult Location()
-        {
-            ViewBag.Message = "Your Review page.";
-            ReviewModel model = new ReviewModel();
+            model.ShowSentiments = false;
             return View(model);
         }
 
@@ -127,7 +100,7 @@ namespace Review_Analyzer.Controllers
             var byteContent = new ByteArrayContent(buffer);
             byteContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
 
-            var result =  client.PostAsync(@"http://localhost:5001/api/SentimentAnalysis", byteContent).Result;
+            var result =  client.PostAsync(@"http://localhost:5002/api/SentimentAnalysis", byteContent).Result;
 
             if (result.IsSuccessStatusCode)
             {
@@ -148,8 +121,6 @@ namespace Review_Analyzer.Controllers
     {
         public List<SentimentPrediction> SentimentPrediction { get; set; }
     }
-
-
     
     public class SentimentPrediction
     {     

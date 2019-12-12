@@ -12,3 +12,5 @@
 *.ide
 *.ide-shm
 .vs/ReviewAnalyzer/v16/Server/sqlite3/storage.ide-wal
+/ReviewAnalyzerWeb/bin
+/ReviewAnalyzerWeb/UploadedFiles/Test.txt
