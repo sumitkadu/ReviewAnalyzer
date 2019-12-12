@@ -169,7 +169,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Images\Down.png" />
     <Content Include="Images\Negative.jpg" />
     <Content Include="Images\Positive.jpg" />
     <Content Include="mp4\bg.mp4" />
@@ -199,6 +198,7 @@
     <Content Include="Coming Soon\fontawesome-free\webfonts\fa-solid-900.woff2" />
     <Content Include="Coming Soon\jquery\jquery.min.map" />
     <Content Include="Coming Soon\jquery\jquery.slim.min.map" />
+    <None Include="Properties\PublishProfiles\ReviewAnalyzerWeb - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
