@@ -170,8 +170,10 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Images\Down.png" />
+    <Content Include="Images\MB_enso.png" />
     <Content Include="Images\Negative.jpg" />
     <Content Include="Images\Positive.jpg" />
+    <Content Include="Images\sentiment-analysis-header.jpg" />
     <Content Include="mp4\bg.mp4" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
