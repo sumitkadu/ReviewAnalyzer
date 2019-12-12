@@ -9,7 +9,7 @@
 @using (Html.BeginForm("GetSentiment", "Home", FormMethod.Post))
 {
     <label> Review Comments: </label>
-    @Html.TextBox("txtReviewCommnent", null, new { @class = "form-control", style = "width : 600px" })
+    @Html.TextArea("txtReviewCommnent", null, new { @class = "form-control", style = "width : 600px" })
     <br />
     <input id="Submit1" type="submit" value="Submit" class="btn btn-primary" />
     <br />

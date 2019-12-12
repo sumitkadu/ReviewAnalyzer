@@ -202,6 +202,7 @@
     <Content Include="Coming Soon\fontawesome-free\webfonts\fa-solid-900.woff2" />
     <Content Include="Coming Soon\jquery\jquery.min.map" />
     <Content Include="Coming Soon\jquery\jquery.slim.min.map" />
+    <None Include="Properties\PublishProfiles\ReviewAnalyzerWeb - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
