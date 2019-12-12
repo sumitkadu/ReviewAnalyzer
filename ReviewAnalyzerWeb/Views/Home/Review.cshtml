@@ -3,11 +3,14 @@
 }
 @model Review_Analyzer.Models.ReviewModel
 
-<h2>@ViewBag.Title</h2>
+
+
 <br />
 
 @using (Html.BeginForm("GetSentiment", "Home", FormMethod.Post))
 {
+<div class="jumbotron"  style="text-align:left;margin-left:5px; margin-top:-30px;" >
+    <h2>@ViewBag.Title</h2>
     <label> Review Comments: </label>
     @Html.TextArea("txtReviewCommnent", null, new { @class = "form-control", style = "width : 600px" })
     <br />
@@ -16,8 +19,9 @@
     <br />
     if (Model.ShowSentiments)
     {
-        <label id="probability">Probability : @Model.Probability</label>
+    <label id="probability">Probability : @Model.Probability</label>
     }
+</div>
 }
 <br />
 <br />

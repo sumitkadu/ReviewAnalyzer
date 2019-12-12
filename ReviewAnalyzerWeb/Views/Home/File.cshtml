@@ -5,11 +5,13 @@
 @model Review_Analyzer.Models.ReviewModel
 
 
-<h2>@ViewBag.Title</h2>
+
 <br />
 
 @using (Html.BeginForm("UploadFile", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
+<div class="jumbotron" style="text-align:left;margin-left:5px; margin-top:-30px;height:100%">
+    <h2>@ViewBag.Title</h2>
     <input type="file" name="uploadFile" />
     <br />
     <input id="Submit" type="submit" value="Upload" class="btn btn-primary" />
@@ -48,4 +50,5 @@
                 </table>
             }
     </Div>
+</div>
 }
