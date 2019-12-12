@@ -13,7 +13,7 @@ namespace ReviewAnalyzerAPI
 {
     public class SentimentAnalysis
     {
-        static readonly string _dataPath = System.Configuration.ConfigurationManager.AppSettings["TrainingDataFilePath"].ToString();
+        static readonly string _dataPath = System.Web.Hosting.HostingEnvironment.MapPath(@"~/App_Data/TrainingData.txt");
 
 
         public TrainTestData LoadData(MLContext mlContext)
