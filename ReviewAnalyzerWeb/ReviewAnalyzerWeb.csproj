@@ -16,7 +16,7 @@
     <AssemblyName>Review Analyzer</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
-    <UseIISExpress>false</UseIISExpress>
+    <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
@@ -170,9 +170,12 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Images\Down.png" />
+    <Content Include="Images\Happy.jpg" />
     <Content Include="Images\MB_enso.png" />
-    <Content Include="Images\Negative.jpg" />
-    <Content Include="Images\Positive.jpg" />
+    <Content Include="Images\Negative1.png" />
+    <Content Include="Images\Negative_R.png" />
+    <Content Include="Images\Positive1.png" />
+    <Content Include="Images\Positive_R.png" />
     <Content Include="Images\sentiment-analysis-header.jpg" />
     <Content Include="Images\Sentiment-Analysis-Header1.jpg" />
     <Content Include="mp4\bg.mp4" />
@@ -265,7 +268,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>62303</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost/ReviewAnalyzerWeb</IISUrl>
+          <IISUrl>http://localhost:62303/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

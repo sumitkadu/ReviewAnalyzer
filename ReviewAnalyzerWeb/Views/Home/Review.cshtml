@@ -1,5 +1,5 @@
 ﻿@{
-    ViewBag.Title = "Signle Line Review";
+    ViewBag.Title = "Single Line Review";
 }
 @model Review_Analyzer.Models.ReviewModel
 
@@ -36,34 +36,7 @@
 @using (Html.BeginForm("GetSentiment", "Home", FormMethod.Post))
 {
 <div class="jumbotron" style="text-align:left;margin-left:5px; margin-top:-30px">
-    @*<table style="margin-top:85px; vertical-align:top">
-        <tr>
-            <td colspan="2" align="left">
-                <h3>@ViewBag.Title</h3>
-            </td>
-        </tr>
-        <tr></tr>
-        <tr>
-            <td>Review Comments: </td>
-            <td> @Html.TextArea("txtReviewCommnent", null, new { @class = "form-control", style = "width : 600px" })</td>
-        </tr>
-        <tr>
-            <td colspan="2">
-                <input id="Submit1" type="submit" value="Submit" class="btn btn-primary" />
-            </td>
-        </tr>
-        <tr>
-            <td colspan="2">
-
-                @if (Model.ShowSentiments)
-                {
-                    <label id="probability">Probability : @Model.Probability</label>
-                }
-            </td>
-        </tr>
-    </table>*@
-
-
+    
     <table width="500px" style="padding:50px; border:0.5px solid lightgray;">
         <tr style="text-align:center; padding:5px ">
             <td colspan="2">
@@ -80,14 +53,23 @@
         </td>
         </tr>
         <tr>
-            <td colspan="2">
-
+            <td align="right" valign="top" colspan="2">
+                @*<img src="@Model.ImageURL" alt="@Model.ImageURL" />*@
+                <img style="width:60px;height:60px;" src="@Model.ImageURL" alt="@Model.ImageURL" />
                 @if (Model.ShowSentiments)
                 {
                     <label id="probability">Probability : @Model.Probability</label>
                 }
             </td>
+            @*<td align="left">
+
+                @if (Model.ShowSentiments)
+                {
+                    <label id="probability">Probability : @Model.Probability</label>
+                }
+            </td>*@
         </tr>
+
     </table>
 
    
@@ -96,6 +78,6 @@
 }
 <br />
 <br />
-<img src="@Model.ImageURL" alt="@Model.ImageURL" />
+
 
 
