@@ -100,7 +100,7 @@ namespace Review_Analyzer.Controllers
             var byteContent = new ByteArrayContent(buffer);
             byteContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
 
-            var result =  client.PostAsync(@"https://reviewanalyzerapi.azurewebsites.net/api/SentimentAnalysis", byteContent).Result;
+            var result =  client.PostAsync(@"http://localhost/ReviewAnalyzerAPI/api/SentimentAnalysis", byteContent).Result;
 
             if (result.IsSuccessStatusCode)
             {
