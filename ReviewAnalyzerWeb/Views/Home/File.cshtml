@@ -1,95 +1,86 @@
 ﻿@{
     ViewBag.Title = "File Review";
 }
-
 @model Review_Analyzer.Models.ReviewModel
-
 <style>
-     table { 
-                border-collapse: collapse; 
-            } 
-            th { 
-                background-color:green; 
-                Color:white; 
-            } 
-            th, td { 
-                width:150px; 
-                text-align:center; 
-                padding:5px 
-              
-            } 
-            .geeks { 
-                border-right:hidden; 
-            } 
-            .gfg { 
-                border-collapse:separate; 
-                border-spacing:0 15px; 
-            } 
-            h1 { 
-                color:green; 
-            } 
+    table {
+        border-collapse: collapse;
+    }
+
+    th {
+        background-color: green;
+        Color: white;
+    }
+
+    th, td {
+        width: 150px;
+        text-align: center;
+        padding: 5px
+    }
+
+    .geeks {
+        border-right: hidden;
+    }
+
+    .gfg {
+        border-collapse: separate;
+        border-spacing: 0 15px;
+    }
+
+    h1 {
+        color: green;
+    }
 </style>
-
 <br />
-
 @using (Html.BeginForm("UploadFile", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
-<div class="jumbotron" style="text-align:left;margin-left:5px; margin-top:-30px;height:30%">
-    <table width="500px" style="padding:50px; border:0.5px solid lightgray;">
-        <tr style="text-align:center; padding:5px ">
-            <td>
-                <h3>@ViewBag.Title</h3>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <input type="file" name="uploadFile" />
-            </td>
-        </tr>
-        <tr style="align-content:left;">
-            <td>
-                <input id="Submit" type="submit" value="Upload" class="btn btn-primary" />
-            </td>
-        </tr>
-    </table>
-    
-    
-    <br />
-    
-    <br />
-    <br />
-    <br />
-    <br />
-
-    <Div>
-        @if (Model.ShowSentiments)
-        {
-            <label id="probability">Probability : @Model.Probability</label>
-            <br />
-            <br />
-            <table width="100%" height="50px">
-                <tr>
-                    <td width="1%" align="left">
-                        <img src="~/Images/Positive1.png" alt="Positive" />
-                    </td>
-                    <td>
-                        <div class="progress" style="height:50px">
-                            <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuemin="0" aria-valuemax="100"
-                                 style="width:@Model.PositiveSentiments; height:50px">
-                                @Model.PositiveSentiments
-                            </div>
-                            <div class="progress-bar progress-bar-danger progress-bar-striped" role="progressbar" aria-valuemin="0" aria-valuemax="100"
-                                 style="width:@Model.NegativeSentiments;height:50px">@Model.NegativeSentiments</div>
+    <div class="jumbotron" style="text-align:left;margin-left:5px; margin-top:-30px;height:30%">
+        <table width="500px" style="padding:50px; border:0.5px solid lightgray;">
+            <tr style="text-align:center; padding:5px ">
+                <td>
+                    <h3>@ViewBag.Title</h3>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="file" name="uploadFile" />
+                </td>
+            </tr>
+            <tr style="align-content:left;">
+                <td>
+                    <input id="Submit" type="submit" value="Upload" class="btn btn-primary" />
+                </td>
+            </tr>
+        </table>
+        <Div style="height:20%">
+            @if (Model.ShowSentiments)
+            {
+                <label id="probability">Probability : @Model.Probability</label>
+                <table width="100%">
+                    <tr>
+                        <td align="right">
+                            <img src="~/Images/Positive1.png" alt="Positive" style="width:25%;height:25%" />
+                        </td>
+                        <td>
+                            <div class="progress" style="width:100%">
+                                <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuemin="0" aria-valuemax="100"
+                                     style="width:@Model.PositiveSentiments; height:50px">
+                                    @Model.PositiveSentiments
+                                </div>
+                                <div class="progress-bar progress-bar-danger progress-bar-striped" role="progressbar" aria-valuemin="0" aria-valuemax="100"
+                                     style="width:@Model.NegativeSentiments;height:50px">
+                                    @Model.NegativeSentiments
+                                </div>
                             </div>
                         </td>
-                        <td width="1%">
-                            <div style="width:50%;background-color:chartreuse">
-                                <img src="~/Images/Negative1.png" alt="Negative" />
+                        <td align="left">
+                            <div>
+                                <img src="~/Images/Negative1.png" alt="Negative" style="width:25%;height:25%" />
                             </div>
                         </td>
                     </tr>
                 </table>
             }
-    </Div>
-</div>
+        </Div>
+    </div>
 }
