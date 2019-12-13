@@ -4,17 +4,58 @@
 
 @model Review_Analyzer.Models.ReviewModel
 
-
+<style>
+     table { 
+                border-collapse: collapse; 
+            } 
+            th { 
+                background-color:green; 
+                Color:white; 
+            } 
+            th, td { 
+                width:150px; 
+                text-align:center; 
+                padding:5px 
+              
+            } 
+            .geeks { 
+                border-right:hidden; 
+            } 
+            .gfg { 
+                border-collapse:separate; 
+                border-spacing:0 15px; 
+            } 
+            h1 { 
+                color:green; 
+            } 
+</style>
 
 <br />
 
 @using (Html.BeginForm("UploadFile", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
 <div class="jumbotron" style="text-align:left;margin-left:5px; margin-top:-30px;height:100%">
-    <h2>@ViewBag.Title</h2>
-    <input type="file" name="uploadFile" />
+    <table width="500px" style="padding:50px; border:0.5px solid lightgray;">
+        <tr style="text-align:center; padding:5px ">
+            <td>
+                <h3>@ViewBag.Title</h3>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="file" name="uploadFile" />
+            </td>
+        </tr>
+        <tr style="align-content:left;">
+            <td>
+                <input id="Submit" type="submit" value="Upload" class="btn btn-primary" />
+            </td>
+        </tr>
+    </table>
+    
+    
     <br />
-    <input id="Submit" type="submit" value="Upload" class="btn btn-primary" />
+    
     <br />
     <br />
     <br />

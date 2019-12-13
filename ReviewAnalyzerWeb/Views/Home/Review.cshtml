@@ -1,26 +1,97 @@
 ﻿@{
-    ViewBag.Title = "Comment Review";
+    ViewBag.Title = "Signle Line Review";
 }
 @model Review_Analyzer.Models.ReviewModel
 
 
 
 <br />
+<style>
+     table { 
+                border-collapse: collapse; 
+            } 
+            th { 
+                background-color:green; 
+                Color:white; 
+            } 
+            th, td { 
+                width:150px; 
+                text-align:center; 
+                padding:5px 
+              
+            } 
+            .geeks { 
+                border-right:hidden; 
+            } 
+            .gfg { 
+                border-collapse:separate; 
+                border-spacing:0 15px; 
+            } 
+            h1 { 
+                color:green; 
+            } 
+
+</style>
 
 @using (Html.BeginForm("GetSentiment", "Home", FormMethod.Post))
 {
-<div class="jumbotron"  style="text-align:left;margin-left:5px; margin-top:-30px;" >
-    <h2>@ViewBag.Title</h2>
-    <label> Review Comments: </label>
-    @Html.TextArea("txtReviewCommnent", null, new { @class = "form-control", style = "width : 600px" })
-    <br />
-    <input id="Submit1" type="submit" value="Submit" class="btn btn-primary" />
-    <br />
-    <br />
-    if (Model.ShowSentiments)
-    {
-    <label id="probability">Probability : @Model.Probability</label>
-    }
+<div class="jumbotron" style="text-align:left;margin-left:5px; margin-top:-30px">
+    @*<table style="margin-top:85px; vertical-align:top">
+        <tr>
+            <td colspan="2" align="left">
+                <h3>@ViewBag.Title</h3>
+            </td>
+        </tr>
+        <tr></tr>
+        <tr>
+            <td>Review Comments: </td>
+            <td> @Html.TextArea("txtReviewCommnent", null, new { @class = "form-control", style = "width : 600px" })</td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input id="Submit1" type="submit" value="Submit" class="btn btn-primary" />
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+
+                @if (Model.ShowSentiments)
+                {
+                    <label id="probability">Probability : @Model.Probability</label>
+                }
+            </td>
+        </tr>
+    </table>*@
+
+
+    <table width="500px" style="padding:50px; border:0.5px solid lightgray;">
+        <tr style="text-align:center; padding:5px ">
+            <td colspan="2">
+                <h3>@ViewBag.Title</h3>
+            </td>
+        </tr>
+        <tr>
+            <td>Review Comments: </td>
+            <td> @Html.TextArea("txtReviewCommnent", null, new { @class = "form-control", style = "width : 600px" })</td>
+        </tr>
+        <tr>
+        <td colspan="2">
+            <input id="Submit1" type="submit" value="Submit" class="btn btn-primary" />
+        </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+
+                @if (Model.ShowSentiments)
+                {
+                    <label id="probability">Probability : @Model.Probability</label>
+                }
+            </td>
+        </tr>
+    </table>
+
+   
+
 </div>
 }
 <br />
