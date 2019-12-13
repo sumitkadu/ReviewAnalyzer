@@ -57,9 +57,9 @@ namespace Review_Analyzer.Controllers
             var sentimentPrediction = MakeRequest(new List<string> { txtReviewCommnent }).FirstOrDefault();
             bool result = sentimentPrediction.Prediction.Value;
             if (result)
-                model.ImageURL = "../Images/Positive.jpg";
+                model.ImageURL = "../Images/Positive1.png";
             else
-                model.ImageURL = "../Images/Negative.jpg";
+                model.ImageURL = "../Images/Negative1.png";
 
             model.Probability = sentimentPrediction.Probability.Value;
             model.ShowSentiments = true;

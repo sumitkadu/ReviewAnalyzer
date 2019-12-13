@@ -34,7 +34,7 @@
 
 @using (Html.BeginForm("UploadFile", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
-<div class="jumbotron" style="text-align:left;margin-left:5px; margin-top:-30px;height:100%">
+<div class="jumbotron" style="text-align:left;margin-left:5px; margin-top:-30px;height:30%">
     <table width="500px" style="padding:50px; border:0.5px solid lightgray;">
         <tr style="text-align:center; padding:5px ">
             <td>
@@ -67,10 +67,10 @@
             <label id="probability">Probability : @Model.Probability</label>
             <br />
             <br />
-            <table>
+            <table width="100%" height="50px">
                 <tr>
                     <td width="1%" align="left">
-                        <img src="~/Images/Positive_R.png" alt="Positive" />
+                        <img src="~/Images/Positive1.png" alt="Positive" />
                     </td>
                     <td>
                         <div class="progress" style="height:50px">
@@ -84,7 +84,7 @@
                         </td>
                         <td width="1%">
                             <div style="width:50%;background-color:chartreuse">
-                                <img src="~/Images/Negative_R.png" alt="Negative" />
+                                <img src="~/Images/Negative1.png" alt="Negative" />
                             </div>
                         </td>
                     </tr>
